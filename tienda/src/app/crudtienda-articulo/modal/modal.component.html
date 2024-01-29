@@ -1,0 +1,90 @@
+
+
+<div>
+    <h1>{{title}}</h1>
+  </div>
+  
+  <section >
+  <form [formGroup]="form" novalidate (submit)="save(form.value)">
+     <mat-dialog-content>
+         <mat-card class="bgr-negro50">
+             <mat-card-content>
+                 <div class="row">
+                     <div class="col">
+                         <mat-card>
+                             <mat-card-content>
+                                 <mat-accordion>
+                                     <mat-expansion-panel [expanded]="true">
+  
+                                         <mat-card  >
+                                             <div class="row">
+  
+                                                 <input type="hidden" formControlName="id">
+                                              
+ 
+
+  
+                                                 <div class="col-md-8">
+                                                     <div class="col-12">
+                                                        <mat-form-field>
+                                                            <mat-label>Tienda</mat-label>
+                                                            <mat-select formControlName="idtienda" [(value)]="selecTienda">
+                                                                <mat-option></mat-option>
+                                                                <mat-option [value]="option.id_tienda" *ngFor="let option of tienda">{{ option.sucursal }}</mat-option>
+                                                              </mat-select>
+                                                          </mat-form-field>
+                                                      
+  
+                                                     </div>
+  
+  
+  
+  
+  
+  
+  
+                                                 </div>
+                                                 <div class="col-md-8">
+                                                    <div class="col-12">
+                                                      
+                                                        <mat-form-field>
+                                                            <mat-label>Articulo</mat-label>
+                                                            <mat-select formControlName="idarticulo" [(value)]="selecArticulo">
+                                                                <mat-option></mat-option>
+                                                                <mat-option [value]="option.id_art" *ngFor="let option of Articulos">{{ option.descripcion }}</mat-option>
+                                                              </mat-select>
+                                                          </mat-form-field>
+                                                    </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                                                </div>
+  
+                                             </div>
+                                         </mat-card>
+  
+  
+                                     </mat-expansion-panel>
+                                 </mat-accordion>
+                             </mat-card-content>
+                         </mat-card>
+                     </div>
+                 </div>
+             </mat-card-content>
+         </mat-card>
+     </mat-dialog-content>
+     <mat-dialog-actions>
+         <button type="button" mat-mini-fab color="accent" [mat-dialog-close]="'cerrar'" cdkFocusInitial>
+             <mat-icon>close</mat-icon>
+         </button>
+         <button type="submit"  mat-mini-fab color="accept">
+             <mat-icon>check</mat-icon>
+         </button>
+     </mat-dialog-actions>
+  </form>
+  </section>
+  
